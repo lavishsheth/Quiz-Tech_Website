@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feedback_page.css">
+    <title>Quiz-Tech/FeedBack</title>
+    <link rel="stylesheet" href="Blog.css">
+    <link href="Intro.css" rel="stylesheet">
+    <link href="Home.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Logo.png"/>
+    <style>
+        /* Center the content inside .central-content */
+        .central-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        /* Style the marquee tag */
+        .central-content p marquee {
+            font-size: 1.2em;
+            color: orange;
+        }
+        .feedback {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <a href="Introduction.html">
+                            <img src="Logo.png" alt="Quiz-Tech" style="width: 100px; height: 100px;">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="central-content">
+        <h2>Quiz Results</h2>
+        <p>Your Score: <span id="userScore">75</span></p>
+        <button onclick="generateFeedback()">Generate Feedback</button>
+    </div>
+
+    <div class="feedback">
+        <h2>Feedback</h2>
+        <p id="feedbackText"></p>
+        <a href="recommended_courses.html">
+        <button>Recommended Courses</button></a>
+    </div>
+
+    <script>
+        function generateFeedback() {
+            var userScore = parseInt(document.getElementById("userScore").textContent);
+            var feedbackText = '';
+            
+            var feedbackMessages = [
+                "Great job! You are a quiz champion, and your knowledge is exceptional. Keep up the good work!",
+                "You did well, and your score is above average. Keep learning and improving!",
+                "Your performance shows potential, but there's room for improvement. Don't be discouraged; work on some online courses as an opportunity to focus on areas where you can strengthen your knowledge.",
+                "Your score shows that there is a lot to learn. Don't get discouraged; education is a journey!",
+                "You can improve your score with more practice and dedication. Keep trying!",
+                "Your score is quite low, but don't give up. Every quiz is a chance to learn and grow."
+            ];
+
+            if (userScore >= 90) {
+                feedbackText = feedbackMessages[0];
+            } else if (userScore >= 80) {
+                feedbackText = feedbackMessages[1];
+            } else if (userScore >= 70) {
+                feedbackText = feedbackMessages[2];
+            } else if (userScore >= 60) {
+                feedbackText = feedbackMessages[3];
+            } else if (userScore >= 50) {
+                feedbackText = feedbackMessages[4];
+            } else {
+                feedbackText = feedbackMessages[5];
+            }
+
+            document.getElementById("feedbackText").innerHTML = feedbackText;
+            document.querySelector(".feedback").style.display = "block";
+        }
+    </script>
+</body>
+</html>

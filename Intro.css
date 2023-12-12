@@ -1,0 +1,351 @@
+/* Intro.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white; /* White background for the page */
+  font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  background-color: orange; /* Orange background for the navigation bar */
+  color: white;
+  padding: 10px 20px; /* Adjusted padding */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 60px; /* Set a fixed height for the navbar */
+}
+
+.logo img {
+  width: auto;
+  height: 40px; /* Adjusted height for the logo */
+}
+
+.logo {
+  font-size: 1.2em; /* Adjusted font size for the logo */
+}
+
+.buttons button {
+  margin-left: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signin-btn {
+  background-color: white;
+  color: orange;
+}
+
+.signup-btn {
+  background-color: orange;
+  color: white;
+}
+
+/* Animated Text Styles */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.animated-text {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 20px;
+  color: orange; /* Set the text color to orange */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  white-space: nowrap; /* Prevent line break */
+  overflow: hidden; /* Hide overflow */
+}
+
+.animated-letter {
+  display: inline-block;
+  font-weight: bold; /* Make the letter bold */
+  color: orange; /* Set the text color to orange */
+  margin: 0 5px; /* Add margin for spacing between letters */
+}
+
+.animated-text .animated-letter {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards; /* Apply fade-in animation */
+}
+
+.animated-text .animated-letter:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for the first letter */
+}
+
+.animated-text .animated-letter:nth-child(2) {
+  animation-delay: 1s; /* Delay for the second letter */
+}
+
+.animated-text .animated-letter:nth-child(3) {
+  animation-delay: 1.5s; /* Delay for the third letter */
+}
+
+/* Additional Content Styles */
+.additional-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.additional-content img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+}
+
+.additional-content p {
+  color: black; /* Set the text color to dark black */
+  display: inline-block;
+}
+
+/* Word-by-word animation */
+.additional-content p span {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.additional-content p span:nth-child(1) {
+  animation-delay: 2s; /* Delay for the first word */
+}
+
+.additional-content p span:nth-child(2) {
+  animation-delay: 3s; /* Delay for the second word */
+}
+
+/* Timeline Container */
+.timeline {
+  background: white; /* Match the primary color */
+    margin: 20px auto; /* Center the timeline horizontally */
+    padding: 20px;
+    border-radius: 15px; /* Added border-radius for a rounded look */
+    max-width: 500px; /* Set a maximum width for better readability on larger screens */
+  }
+  
+
+/* Card container */
+.timeline .card {
+  position: relative;
+  max-width: 400px;
+}
+
+/* setting padding based on even or odd */
+.timeline .card:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+
+.timeline .card:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+
+/* Global ::before */
+.timeline .card::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  border: solid orangered;
+}
+
+/* Setting the border of top, bottom, left */
+.timeline .card:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Setting the border of top, bottom, right */
+.timeline .card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.timeline .card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card and it's odd */
+.timeline .card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card and it's even */
+.timeline .card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.timeline .info {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Title of the card */
+.timeline .title {
+  color: orangered;
+  position: relative;
+}
+
+/* Timeline dot */
+.timeline .title::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 999px;
+  border: 3px solid orangered;
+}
+
+/* text right if the card is even */
+.timeline .card:nth-child(even) > .info > .title {
+  text-align: right;
+}
+
+/* setting dot to the left if the card is odd */
+.timeline .card:nth-child(odd) > .info > .title::before {
+  left: -45px;
+}
+
+/* setting dot to the right if the card is odd */
+.timeline .card:nth-child(even) > .info > .title::before {
+  right: -45px;
+}
+
+/* Add a heading for testimonials */
+.testimonials-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Additional styles for Testimonials Section */
+.testimonials {
+  text-align: center;
+  margin-top: 40px; /* Adjust as needed */
+  margin-bottom: 40px; /* Add space between timeline and testimonials */
+}
+
+.testimonials-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.testimonials-container {
+  display: flex;
+  justify-content: space-around; /* Adjust as needed */
+  flex-wrap: wrap;
+}
+
+.box {
+  background: #fff;
+  width: 250px;
+  padding: 15px;
+  border: 2px solid orange;
+  margin-bottom: 20px; /* Adjust spacing */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 0 0 calc(33.33% - 20px); /* Distribute boxes evenly with some spacing */
+}
+
+.testimonial {
+  text-align: center;
+}
+
+.testimonial i {
+  font-size: 20px;
+  color: orange;
+  margin-bottom: 10px;
+}
+
+.testimonial p {
+  margin: 0;
+  color: black;
+}
+
+.content .info .name {
+  font-weight: 600;
+  font-size: 16px;
+  color: orange;
+}
+
+
+/* Additional styles for Footer Section */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.orange-container {
+  background-color: orange;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.orange-container a {
+  color: white;
+}
+
+.social-icon {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon a {
+  color: white;
+  margin: 0 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.copyright-text a {
+  color: white;
+  font-weight: bold;
+}
+
+.buttons button {
+  margin-left: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white; /* Set white background color for all buttons */
+  color: orange; /* Set orange text color for all buttons */
+  font-weight: bold; /* Make the text bold for all buttons */
+}
+
+.signin-btn {
+  color: orange; /* Adjusting the color for the specific class if needed */
+}
+
+.signup-btn {
+  color: white; /* Adjusting the color for the specific class if needed */
+}
